@@ -1,0 +1,50 @@
+{
+  "name": "information_request",
+  "version": "1.0", 
+  "description": "Handle information requests and general questions",
+  "action": "information_request",
+  "intent": "get_information",
+  "keywords": ["what", "how", "when", "where", "why", "tell me", "explain", "define", "weather", "time", "date"],
+  "parameters": {
+    "query_type": {
+      "type": "string",
+      "description": "Type of information requested",
+      "enum": ["weather", "time", "date", "definition", "explanation", "general"]
+    },
+    "subject": {
+      "type": "string",
+      "description": "Subject of the information request",
+      "optional": true
+    },
+    "location": {
+      "type": "string", 
+      "description": "Location for location-specific queries",
+      "optional": true
+    }
+  },
+  "examples": [
+    {
+      "input": "What time is it?",
+      "parsed": {
+        "action": "information_request",
+        "query_type": "time"
+      }
+    },
+    {
+      "input": "What's the weather like?",
+      "parsed": {
+        "action": "information_request",
+        "query_type": "weather"
+      }
+    },
+    {
+      "input": "Tell me about artificial intelligence",
+      "parsed": {
+        "action": "information_request",
+        "query_type": "explanation",
+        "subject": "artificial intelligence"
+      }
+    }
+  ]
+}
+

@@ -1,0 +1,51 @@
+{
+  "name": "device_control",
+  "version": "1.0",
+  "description": "Control smart home devices like lights, thermostats, and security systems",
+  "action": "device_control",
+  "intent": "control_device",
+  "keywords": ["turn on", "turn off", "switch", "light", "thermostat", "temperature", "lock", "unlock", "security"],
+  "parameters": {
+    "device_type": {
+      "type": "string",
+      "description": "Type of device to control",
+      "enum": ["light", "thermostat", "lock", "security", "fan", "outlet"]
+    },
+    "action": {
+      "type": "string", 
+      "description": "Action to perform",
+      "enum": ["on", "off", "toggle", "set", "lock", "unlock"]
+    },
+    "location": {
+      "type": "string",
+      "description": "Location of the device",
+      "optional": true
+    },
+    "value": {
+      "type": "number",
+      "description": "Value to set (e.g., temperature, brightness)",
+      "optional": true
+    }
+  },
+  "examples": [
+    {
+      "input": "Turn on the living room lights",
+      "parsed": {
+        "action": "device_control",
+        "device_type": "light",
+        "action": "on",
+        "location": "living room"
+      }
+    },
+    {
+      "input": "Set temperature to 72 degrees",
+      "parsed": {
+        "action": "device_control", 
+        "device_type": "thermostat",
+        "action": "set",
+        "value": 72
+      }
+    }
+  ]
+}
+

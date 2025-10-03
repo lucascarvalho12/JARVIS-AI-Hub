@@ -1,113 +1,346 @@
-# JARVIS AI Hub
+# JARVIS AI Hub - Enhanced Edition
 
-A personalized AI hub system designed to connect your phone, car, and house into an integrated network for a JARVIS-like AI assistant/companion.
+A sophisticated, extensible AI assistant system inspired by Tony Stark's JARVIS. This enhanced version features dynamic skill routing, circuit breaker resilience, OpenAI GPT fallback, and comprehensive monitoring capabilities.
 
-## Table of Contents
+## 🚀 Features
 
-- [Project Overview](#project-overview)
-- [System Components](#system-components)
-- [Deployment Instructions](#deployment-instructions)
-  - [Backend API (Flask)](#backend-api-flask)
-  - [Web Dashboard (React)](#web-dashboard-react)
-- [Usage](#usage)
-- [Features](#features)
-- [Future Enhancements (Requires Upgrade)](#future-enhancements-requires-upgrade)
+### Core AI Capabilities
+- **Dynamic Skill System**: Extensible skill-based architecture with JSON schema definitions
+- **Intelligent Routing**: Automatic request routing to appropriate skills based on natural language processing
+- **GPT Fallback**: Seamless fallback to OpenAI GPT-4 for unmatched requests
+- **Circuit Breaker**: Resilient system design that isolates failing components
+- **Prometheus Metrics**: Comprehensive monitoring and performance tracking
 
-## Project Overview
+### Smart Home Integration
+- **Device Control**: Control lights, thermostats, locks, and security systems
+- **Natural Language Processing**: Understands commands like "turn on the living room lights"
+- **Multi-Device Support**: Manage multiple devices across different locations
+- **Status Monitoring**: Real-time device status and system health
 
-The JARVIS AI Hub aims to create a seamless, intelligent ecosystem that learns, adapts, and anticipates your needs across your personal devices and home environment. It acts as a centralized command center, orchestrating various aspects of your digital life through a robust backend and an intuitive web-based dashboard.
+### Information Services
+- **Time & Date**: Current time and date information
+- **Weather**: Weather information and forecasts (simulated)
+- **System Status**: AI system health and performance metrics
+- **General Q&A**: Powered by OpenAI GPT for comprehensive knowledge
 
-## System Components
+### Web Interface
+- **Modern React Dashboard**: Futuristic JARVIS-inspired interface
+- **Real-time Chat**: Interactive conversation with the AI
+- **Device Management**: Visual controls for smart home devices
+- **System Monitoring**: Live metrics and status displays
 
-### 1. Backend API System (`ai_hub_backend/`)
+## 🏗️ Architecture
 
--   **Framework:** Flask
--   **Purpose:** Handles device communication, AI processing, data management, and integration logic.
--   **Key Modules:**
-    -   User profiles, device registry, conversation history, task execution.
-    -   Integration modules for smartphones, cars, and smart home devices.
-    -   AI learning system for pattern recognition and adaptive responses.
+```
+JARVIS AI Hub
+├── Backend (Flask)
+│   ├── Orchestrator Engine
+│   │   ├── Schema Loader
+│   │   ├── Skill Router
+│   │   ├── Circuit Breaker
+│   │   └── GPT Fallback
+│   ├── Skills System
+│   │   ├── Device Control
+│   │   ├── Information Request
+│   │   └── [Extensible...]
+│   ├── API Endpoints
+│   │   ├── /api/chat
+│   │   ├── /api/skills
+│   │   ├── /api/metrics
+│   │   └── /api/health
+│   └── Database (SQLite)
+└── Frontend (React)
+    ├── Chat Interface
+    ├── Device Dashboard
+    ├── System Monitoring
+    └── Settings Panel
+```
 
-### 2. Web Dashboard Interface (`ai-hub-dashboard/`)
+## 📋 Prerequisites
 
--   **Framework:** React
--   **Purpose:** Provides a modern, intuitive web interface for monitoring and controlling all connected devices, interacting with the AI assistant, and visualizing system status.
--   **Key Features:**
-    -   JARVIS-inspired design with a dark theme.
-    -   Real-time device control (lights, thermostat, security, etc.).
-    -   Multi-tab interface for Home, Car, and Phone management.
-    -   AI chat interface with voice command support.
-    -   System monitoring (device status, energy tracking).
+- **Python 3.11+**
+- **Node.js 18+**
+- **OpenAI API Key** (for GPT fallback functionality)
 
-## Deployment Instructions
+## 🛠️ Installation & Setup
 
-To get your JARVIS AI Hub up and running, follow these steps:
+### 1. Clone the Repository
 
-### Backend API (Flask)
+```bash
+git clone https://github.com/lucascarvalho12/JARVIS-AI-Hub.git
+cd JARVIS-AI-Hub
+```
 
-1.  **Navigate to the backend directory:**
-    ```bash
-    cd JARVIS-AI-Hub/ai_hub_backend
-    ```
+### 2. Backend Setup
 
-2.  **Activate the Python virtual environment:**
-    ```bash
-    source venv/bin/activate
-    ```
-    *If `venv` does not exist, you might need to create it and install dependencies. First, ensure `pip` is installed, then run:*
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    pip install -r requirements.txt
-    ```
+```bash
+# Install Python dependencies
+pip3 install --break-system-packages -r requirements.txt
 
-3.  **Start the Flask development server:**
-    ```bash
-    python src/main.py
-    ```
-    *The backend will typically run on `http://127.0.0.1:5000` or `http://localhost:5000`. Keep this terminal open.*
+# Create environment file
+cp .env.example .env
 
-### Web Dashboard (React)
+# Edit .env file and add your OpenAI API key
+nano .env
+```
 
-1.  **Open a new terminal and navigate to the frontend directory:**
-    ```bash
-    cd JARVIS-AI-Hub/ai-hub-dashboard
-    ```
+Add your OpenAI API key to the `.env` file:
+```env
+OPENAI_API_KEY=your_openai_api_key_here
+```
 
-2.  **Install Node.js dependencies (if not already done):**
-    ```bash
-    pnpm install
-    ```
-    *If `pnpm` is not installed, you can install it via `npm install -g pnpm`.*
+### 3. Frontend Setup
 
-3.  **Start the React development server:**
-    ```bash
-    pnpm run dev --host
-    ```
-    *The frontend will typically run on `http://127.0.0.1:5173` or `http://localhost:5173`. Keep this terminal open.*
+```bash
+cd ai-hub-dashboard
 
-## Usage
+# Install Node.js dependencies
+pnpm install
 
-Once both the backend and frontend servers are running:
+# Build for production (optional)
+pnpm run build
+```
 
-1.  **Open your web browser** and navigate to the address provided by the React development server (e.g., `http://localhost:5173/`).
-2.  You will see the **JARVIS AI Hub Dashboard** interface.
-3.  You can interact with the AI assistant via the chat interface and observe the simulated device controls.
-4.  To register actual devices and leverage the AI learning capabilities, you would interact with the backend API directly (e.g., using `curl` or a custom client application).
+### 4. Run the System
 
-## Features
+#### Start Backend
+```bash
+# From the root directory
+python3 src/main.py
+```
+The backend will run on `http://localhost:5000`
 
--   **Device Integration**: Seamless control and monitoring of smartphones, cars, and smart home devices.
--   **Voice Commands**: Natural language processing for intuitive interaction.
--   **AI Learning System**: Analyzes user patterns, predicts intentions, and adapts responses for a personalized experience.
--   **Automation**: Supports smart routines and proactive suggestions based on learned behavior.
--   **Security**: Designed with encrypted communications and local data processing for privacy.
--   **Scalability**: Modular architecture allows for easy expansion and integration of new devices and services.
--   **Real-time Monitoring**: Live status updates for all connected devices and system health.
--   **Mobile-Friendly**: Responsive web interface accessible from any device.
+#### Start Frontend (Development)
+```bash
+# In a new terminal, from ai-hub-dashboard directory
+cd ai-hub-dashboard
+pnpm run dev --host
+```
+The frontend will run on `http://localhost:5173`
 
-## Future Enhancements (Requires Upgrade)
+## 🧪 Testing
 
-To unlock advanced capabilities such as the AI autonomously creating and programming its own applications and functions based on user input, an upgrade to the Wide Research feature is required. This feature provides advanced capabilities for code generation, autonomous development, and integration with external programming environments.
+Run the comprehensive test suite:
+
+```bash
+python3 test_integration.py
+```
+
+This will test:
+- Schema loading and skill matching
+- Individual skill execution
+- Orchestrator functionality
+- Flask application setup
+- API endpoints (if server is running)
+
+## 📡 API Endpoints
+
+### Chat Endpoint
+```http
+POST /api/chat
+Content-Type: application/json
+
+{
+  "message": "turn on the living room lights",
+  "user_id": "user123"
+}
+```
+
+### Skills Management
+```http
+GET /api/skills                    # List all available skills
+POST /api/skills/reload            # Reload skills from disk
+```
+
+### System Monitoring
+```http
+GET /api/health                    # Health check
+GET /api/system/status             # Detailed system status
+GET /api/metrics                   # Prometheus metrics
+POST /api/system/circuit-breaker/reset  # Reset circuit breaker
+```
+
+## 🎯 Skills System
+
+### Creating New Skills
+
+1. **Create Schema** (`src/schemas/skill_name/v1.json`):
+```json
+{
+  "name": "my_skill",
+  "version": "1.0",
+  "description": "Description of what this skill does",
+  "action": "my_action",
+  "keywords": ["keyword1", "keyword2"],
+  "parameters": {
+    "param1": {
+      "type": "string",
+      "description": "Parameter description"
+    }
+  }
+}
+```
+
+2. **Create Skill Module** (`src/skills/my_skill.py`):
+```python
+def execute(input_data: dict) -> dict:
+    """
+    Execute the skill
+    
+    Args:
+        input_data: Input data containing user request
+        
+    Returns:
+        dict: Response from skill execution
+    """
+    return {
+        "response": "Skill executed successfully!",
+        "success": True
+    }
+```
+
+3. **Reload Skills**:
+```bash
+curl -X POST http://localhost:5000/api/skills/reload
+```
+
+### Available Skills
+
+#### Device Control (`device_control`)
+- Controls smart home devices
+- Supports: lights, thermostats, locks, security systems
+- Commands: "turn on/off", "set temperature", "lock/unlock"
+
+#### Information Request (`information_request`)
+- Handles information queries
+- Supports: time, date, weather, system status
+- Commands: "what time is it", "system status", "weather"
+
+## 📊 Monitoring
+
+### Prometheus Metrics
+
+The system exposes the following metrics at `/api/metrics`:
+
+- `skill_calls_total`: Total skill executions by skill name
+- `skill_failures_total`: Total skill failures by skill name  
+- `gpt_calls_total`: Total GPT fallback calls
+- `request_duration_seconds`: Request processing duration by type
+
+### Circuit Breaker
+
+The circuit breaker protects against failing skills:
+- **Closed**: Normal operation
+- **Open**: Skill disabled after repeated failures
+- **Half-Open**: Testing if skill has recovered
+
+Configuration:
+- Failure threshold: 3 failures
+- Reset timeout: 30 seconds
+
+## 🔧 Configuration
+
+### Environment Variables
+
+```env
+# OpenAI Configuration
+OPENAI_API_KEY=your_api_key_here
+
+# Flask Configuration  
+FLASK_ENV=development
+FLASK_DEBUG=True
+SECRET_KEY=your_secret_key
+
+# Circuit Breaker
+CIRCUIT_BREAKER_FAIL_MAX=3
+CIRCUIT_BREAKER_RESET_TIMEOUT=30
+
+# Logging
+LOG_LEVEL=INFO
+```
+
+### Database
+
+The system uses SQLite by default. The database file is created automatically at `src/database/app.db`.
+
+## 🚀 Deployment
+
+### Production Backend
+
+```bash
+# Install production WSGI server
+pip3 install gunicorn
+
+# Run with Gunicorn
+gunicorn -w 4 -b 0.0.0.0:5000 src.main:app
+```
+
+### Production Frontend
+
+```bash
+cd ai-hub-dashboard
+pnpm run build
+
+# Serve static files with nginx or similar
+```
+
+## 🔍 Troubleshooting
+
+### Common Issues
+
+1. **OpenAI API Key Missing**
+   - Ensure `OPENAI_API_KEY` is set in `.env` file
+   - GPT fallback will be disabled without valid API key
+
+2. **Dependencies Missing**
+   - Run: `pip3 install --break-system-packages -r requirements.txt`
+   - For frontend: `pnpm install` in `ai-hub-dashboard/`
+
+3. **Port Conflicts**
+   - Backend default: 5000
+   - Frontend default: 5173
+   - Change ports in respective configuration files
+
+4. **Circuit Breaker Triggered**
+   - Reset via: `POST /api/system/circuit-breaker/reset`
+   - Check skill logs for underlying issues
+
+### Logs
+
+- Backend logs: Console output when running `python3 src/main.py`
+- Skill execution: Logged with INFO level
+- Errors: Logged with ERROR level
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Add your skill or enhancement
+4. Run tests: `python3 test_integration.py`
+5. Submit a pull request
+
+### Adding Skills
+
+Follow the skills system documentation above. All skills should:
+- Have proper error handling
+- Return consistent response format
+- Include logging
+- Have corresponding JSON schema
+
+## 📄 License
+
+This project is open source. Please refer to the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- Inspired by Tony Stark's JARVIS from the Marvel Cinematic Universe
+- Built with Flask, React, and modern AI technologies
+- Enhanced with orchestrator pattern for scalability and resilience
+
+---
+
+**Experience the future of AI assistance with JARVIS!** 🤖✨
+
+For support and questions, please open an issue on GitHub.
 
 
