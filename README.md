@@ -1,202 +1,288 @@
-# JARVIS AI Hub - Enhanced Edition
+# JARVIS AI Hub - Advanced Self-Developing AI Assistant
 
-A sophisticated, extensible AI assistant system inspired by Tony Stark's JARVIS. This enhanced version features dynamic skill routing, circuit breaker resilience, OpenAI GPT fallback, and comprehensive monitoring capabilities.
+[![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Flask](https://img.shields.io/badge/flask-3.1+-green.svg)](https://flask.palletsprojects.com/)
+[![React](https://img.shields.io/badge/react-18+-blue.svg)](https://reactjs.org/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-## 🚀 Features
+A comprehensive, self-developing AI assistant system that can autonomously create, edit, and improve its own code while providing intelligent assistance across multiple platforms including smartphones, cars, and smart homes.
 
-### Core AI Capabilities
-- **Dynamic Skill System**: Extensible skill-based architecture with JSON schema definitions
-- **Intelligent Routing**: Automatic request routing to appropriate skills based on natural language processing
-- **GPT Fallback**: Seamless fallback to OpenAI GPT-4 for unmatched requests
-- **Circuit Breaker**: Resilient system design that isolates failing components
-- **Prometheus Metrics**: Comprehensive monitoring and performance tracking
+## 🚀 **Revolutionary Features**
 
-### Smart Home Integration
-- **Device Control**: Control lights, thermostats, locks, and security systems
-- **Natural Language Processing**: Understands commands like "turn on the living room lights"
-- **Multi-Device Support**: Manage multiple devices across different locations
-- **Status Monitoring**: Real-time device status and system health
+### **🧠 Self-Development Capabilities**
+- **Autonomous Code Generation**: Creates new functions and applications based on user requirements
+- **Self-Modification**: Analyzes and improves its own codebase automatically
+- **Intelligent Research**: Continuously gathers information to enhance capabilities
+- **Adaptive Learning**: Learns from interactions and performance data
+- **Safe Deployment**: Multiple deployment strategies with validation and rollback
 
-### Information Services
-- **Time & Date**: Current time and date information
-- **Weather**: Weather information and forecasts (simulated)
-- **System Status**: AI system health and performance metrics
-- **General Q&A**: Powered by OpenAI GPT for comprehensive knowledge
+### **🔧 Core AI Hub Features**
+- **Multi-Platform Integration**: Seamlessly connects smartphones, cars, and smart homes
+- **Dynamic Skill System**: JSON schema-based extensible skill framework
+- **Circuit Breaker Pattern**: Resilient system architecture with failure isolation
+- **OpenAI GPT Integration**: Advanced language model fallback for complex queries
+- **Real-time Monitoring**: Comprehensive metrics and performance tracking
+- **Professional Web Interface**: Modern React dashboard with multiple themes
 
-### Web Interface
-- **Modern React Dashboard**: Futuristic JARVIS-inspired interface
-- **Real-time Chat**: Interactive conversation with the AI
-- **Device Management**: Visual controls for smart home devices
-- **System Monitoring**: Live metrics and status displays
+## 🏗️ **System Architecture**
 
-## 🏗️ Architecture
-
+### **Backend Components**
 ```
-JARVIS AI Hub
-├── Backend (Flask)
-│   ├── Orchestrator Engine
-│   │   ├── Schema Loader
-│   │   ├── Skill Router
-│   │   ├── Circuit Breaker
-│   │   └── GPT Fallback
-│   ├── Skills System
-│   │   ├── Device Control
-│   │   ├── Information Request
-│   │   └── [Extensible...]
-│   ├── API Endpoints
-│   │   ├── /api/chat
-│   │   ├── /api/skills
-│   │   ├── /api/metrics
-│   │   └── /api/health
-│   └── Database (SQLite)
-└── Frontend (React)
-    ├── Chat Interface
-    ├── Device Dashboard
-    ├── System Monitoring
-    └── Settings Panel
+JARVIS AI Hub Backend
+├── AI Core Engine (orchestrator.py)
+├── Self-Development Module
+│   ├── Code Generation Engine
+│   ├── Code Analyzer & Evaluation Unit
+│   ├── Knowledge & Learning Repository
+│   ├── Performance Analyzer
+│   ├── Research Agent
+│   ├── Validation Framework
+│   └── Deployment Manager
+├── Device Integration Layer
+│   ├── Smartphone Integration
+│   ├── Car Integration
+│   └── Home Automation
+├── Skills Framework
+│   ├── Device Control Skills
+│   ├── Information Request Skills
+│   └── Custom Skills (Extensible)
+└── API Gateway & Security
 ```
 
-## 📋 Prerequisites
-
-- **Python 3.11+**
-- **Node.js 18+**
-- **OpenAI API Key** (for GPT fallback functionality)
-
-## 🛠️ Installation & Setup
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/lucascarvalho12/JARVIS-AI-Hub.git
-cd JARVIS-AI-Hub
+### **Frontend Components**
+```
+JARVIS AI Hub Dashboard
+├── Chat Interface (AI Assistant)
+├── Skills Management
+├── System Metrics & Monitoring
+├── Device Control Panels
+├── Error Logging & Analysis
+├── Settings & Configuration
+└── Multi-Theme Support
 ```
 
-### 2. Backend Setup
+## 🛠️ **Installation & Setup**
 
-```bash
-# Install Python dependencies
-pip3 install --break-system-packages -r requirements.txt
+### **Prerequisites**
+- Python 3.11 or higher
+- Node.js 18 or higher
+- Git
 
-# Create environment file
-cp .env.example .env
+### **Quick Start**
 
-# Edit .env file and add your OpenAI API key
-nano .env
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/lucascarvalho12/JARVIS-AI-Hub.git
+   cd JARVIS-AI-Hub
+   ```
+
+2. **Backend Setup**
+   ```bash
+   # Install Python dependencies
+   pip3 install --break-system-packages -r requirements.txt
+   
+   # Configure environment variables
+   cp .env.example .env
+   # Edit .env and add your OpenAI API key:
+   # OPENAI_API_KEY=your_openai_api_key_here
+   ```
+
+3. **Frontend Setup**
+   ```bash
+   cd ai-hub-dashboard
+   
+   # Install Node.js dependencies
+   pnpm install
+   ```
+
+4. **Start the System**
+   
+   **Terminal 1 - Backend:**
+   ```bash
+   cd JARVIS-AI-Hub
+   python3 src/main.py
+   ```
+   
+   **Terminal 2 - Frontend:**
+   ```bash
+   cd JARVIS-AI-Hub/ai-hub-dashboard
+   pnpm run dev --host
+   ```
+
+5. **Access Your JARVIS AI Hub**
+   - **Frontend Dashboard**: http://localhost:5173
+   - **Backend API**: http://localhost:5000
+
+## 🎯 **Self-Development Capabilities**
+
+### **Autonomous Code Generation**
+The AI can create new code based on natural language descriptions:
+
+```python
+# Example: Request new functionality
+POST /api/self-development/initiate
+{
+    "goal": "Create a new skill for weather forecasting",
+    "priority": "medium"
+}
 ```
 
-Add your OpenAI API key to the `.env` file:
+### **Code Analysis & Improvement**
+Automatically analyzes existing code and suggests improvements:
+
+```python
+# Example: Analyze performance
+POST /api/self-development/initiate
+{
+    "goal": "Improve performance of device control module",
+    "priority": "high"
+}
+```
+
+### **Research & Learning**
+Conducts autonomous research to enhance capabilities:
+
+```python
+# Example: Research new technologies
+POST /api/self-development/initiate
+{
+    "goal": "Research latest IoT protocols for smart home integration",
+    "priority": "medium"
+}
+```
+
+### **Safe Deployment Strategies**
+
+The system supports multiple deployment strategies:
+
+- **Safe Deployment**: Immediate replacement with validation
+- **Gradual Deployment**: Phased rollout with testing
+- **Canary Deployment**: Limited release with monitoring
+- **Blue-Green Deployment**: Environment switching with rollback
+
+## 📡 **API Endpoints**
+
+### **Core AI Endpoints**
+- `POST /api/chat` - Enhanced chat with skill routing
+- `GET /api/skills` - List all available skills
+- `POST /api/skills/reload` - Reload skills dynamically
+- `GET /api/health` - System health check
+- `GET /api/metrics` - Prometheus monitoring metrics
+
+### **Device Integration Endpoints**
+- `POST /api/register` - Register new device
+- `GET /api/ai/devices` - List connected devices
+- `POST /api/control/device` - Control device
+- `GET /api/status/device/{id}` - Get device status
+
+### **Self-Development Endpoints**
+- `POST /api/self-development/initiate` - Start self-development process
+- `GET /api/self-development/status/{id}` - Check development status
+- `POST /api/self-development/validate` - Validate generated code
+- `POST /api/self-development/deploy` - Deploy code changes
+- `GET /api/self-development/history` - View development history
+
+## 🔧 **Configuration**
+
+### **Environment Variables**
+Create a `.env` file with the following variables:
+
 ```env
+# OpenAI Configuration
 OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_API_BASE=https://api.openai.com/v1
+
+# Flask Configuration
+FLASK_ENV=development
+FLASK_DEBUG=True
+
+# Database Configuration
+DATABASE_URL=sqlite:///jarvis_hub.db
+
+# Security
+SECRET_KEY=your_secret_key_here
+
+# Self-Development Settings
+ENABLE_SELF_DEVELOPMENT=true
+VALIDATION_LEVEL=comprehensive
+DEFAULT_DEPLOYMENT_STRATEGY=safe
 ```
 
-### 3. Frontend Setup
+## 🧪 **Testing**
 
-```bash
-cd ai-hub-dashboard
-
-# Install Node.js dependencies
-pnpm install
-
-# Build for production (optional)
-pnpm run build
-```
-
-### 4. Run the System
-
-#### Start Backend
-```bash
-# From the root directory
-python3 src/main.py
-```
-The backend will run on `http://localhost:5000`
-
-#### Start Frontend (Development)
-```bash
-# In a new terminal, from ai-hub-dashboard directory
-cd ai-hub-dashboard
-pnpm run dev --host
-```
-The frontend will run on `http://localhost:5173`
-
-## 🧪 Testing
-
-Run the comprehensive test suite:
-
+### **Run Integration Tests**
 ```bash
 python3 test_integration.py
 ```
 
-This will test:
-- Schema loading and skill matching
-- Individual skill execution
-- Orchestrator functionality
-- Flask application setup
-- API endpoints (if server is running)
+### **Test Self-Development Features**
+```bash
+# Test code generation
+curl -X POST http://localhost:5000/api/self-development/initiate \
+  -H "Content-Type: application/json" \
+  -d '{"goal": "Create a simple calculator function", "priority": "low"}'
 
-## 📡 API Endpoints
-
-### Chat Endpoint
-```http
-POST /api/chat
-Content-Type: application/json
-
-{
-  "message": "turn on the living room lights",
-  "user_id": "user123"
-}
+# Test validation framework
+curl -X POST http://localhost:5000/api/self-development/validate \
+  -H "Content-Type: application/json" \
+  -d '{"code": "def add(a, b): return a + b", "language": "python"}'
 ```
 
-### Skills Management
-```http
-GET /api/skills                    # List all available skills
-POST /api/skills/reload            # Reload skills from disk
-```
+## 📊 **Monitoring & Metrics**
 
-### System Monitoring
-```http
-GET /api/health                    # Health check
-GET /api/system/status             # Detailed system status
-GET /api/metrics                   # Prometheus metrics
-POST /api/system/circuit-breaker/reset  # Reset circuit breaker
-```
+The system provides comprehensive monitoring through:
 
-## 🎯 Skills System
+- **Prometheus Metrics**: Available at `/api/metrics`
+- **Health Checks**: Available at `/api/health`
+- **Performance Analytics**: Built-in performance tracking
+- **Error Logging**: Comprehensive error tracking and analysis
+- **Self-Development History**: Track all autonomous improvements
 
-### Creating New Skills
+## 🔒 **Security Features**
 
-1. **Create Schema** (`src/schemas/skill_name/v1.json`):
+- **Code Validation**: Comprehensive safety checks for generated code
+- **Sandboxed Execution**: Safe execution environment for testing
+- **Access Control**: API authentication and authorization
+- **Audit Logging**: Complete audit trail of all activities
+- **Rollback Capabilities**: Safe rollback for failed deployments
+
+## 🎨 **Frontend Features**
+
+### **Dashboard Themes**
+- Corporate Theme (Default)
+- Executive Theme
+- Minimal Theme
+
+### **Key Interface Components**
+- **AI Chat Interface**: Natural language interaction
+- **Device Control Panels**: Real-time device management
+- **System Monitoring**: Live metrics and performance data
+- **Skills Management**: View and manage AI capabilities
+- **Error Analysis**: Comprehensive error tracking
+- **Settings Panel**: System configuration and preferences
+
+## 🚀 **Advanced Usage**
+
+### **Creating Custom Skills**
+
+1. **Define Schema** (`src/schemas/my_skill/v1.json`):
 ```json
 {
-  "name": "my_skill",
+  "skill_name": "my_skill",
   "version": "1.0",
-  "description": "Description of what this skill does",
-  "action": "my_action",
-  "keywords": ["keyword1", "keyword2"],
+  "description": "My custom skill",
   "parameters": {
-    "param1": {
-      "type": "string",
-      "description": "Parameter description"
-    }
+    "input": {"type": "string", "required": true}
   }
 }
 ```
 
-2. **Create Skill Module** (`src/skills/my_skill.py`):
+2. **Implement Skill** (`src/skills/my_skill.py`):
 ```python
-def execute(input_data: dict) -> dict:
-    """
-    Execute the skill
-    
-    Args:
-        input_data: Input data containing user request
-        
-    Returns:
-        dict: Response from skill execution
-    """
-    return {
-        "response": "Skill executed successfully!",
-        "success": True
-    }
+def execute_skill(parameters):
+    input_data = parameters.get('input', '')
+    # Your skill logic here
+    return {"success": True, "result": f"Processed: {input_data}"}
 ```
 
 3. **Reload Skills**:
@@ -204,143 +290,84 @@ def execute(input_data: dict) -> dict:
 curl -X POST http://localhost:5000/api/skills/reload
 ```
 
-### Available Skills
+### **Autonomous Improvement Workflow**
 
-#### Device Control (`device_control`)
-- Controls smart home devices
-- Supports: lights, thermostats, locks, security systems
-- Commands: "turn on/off", "set temperature", "lock/unlock"
-
-#### Information Request (`information_request`)
-- Handles information queries
-- Supports: time, date, weather, system status
-- Commands: "what time is it", "system status", "weather"
-
-## 📊 Monitoring
-
-### Prometheus Metrics
-
-The system exposes the following metrics at `/api/metrics`:
-
-- `skill_calls_total`: Total skill executions by skill name
-- `skill_failures_total`: Total skill failures by skill name  
-- `gpt_calls_total`: Total GPT fallback calls
-- `request_duration_seconds`: Request processing duration by type
-
-### Circuit Breaker
-
-The circuit breaker protects against failing skills:
-- **Closed**: Normal operation
-- **Open**: Skill disabled after repeated failures
-- **Half-Open**: Testing if skill has recovered
-
-Configuration:
-- Failure threshold: 3 failures
-- Reset timeout: 30 seconds
-
-## 🔧 Configuration
-
-### Environment Variables
-
-```env
-# OpenAI Configuration
-OPENAI_API_KEY=your_api_key_here
-
-# Flask Configuration  
-FLASK_ENV=development
-FLASK_DEBUG=True
-SECRET_KEY=your_secret_key
-
-# Circuit Breaker
-CIRCUIT_BREAKER_FAIL_MAX=3
-CIRCUIT_BREAKER_RESET_TIMEOUT=30
-
-# Logging
-LOG_LEVEL=INFO
+1. **Initiate Self-Development**:
+```python
+development_result = ai_hub.initiate_self_development(
+    "Optimize database query performance",
+    priority="high"
+)
 ```
 
-### Database
-
-The system uses SQLite by default. The database file is created automatically at `src/database/app.db`.
-
-## 🚀 Deployment
-
-### Production Backend
-
-```bash
-# Install production WSGI server
-pip3 install gunicorn
-
-# Run with Gunicorn
-gunicorn -w 4 -b 0.0.0.0:5000 src.main:app
+2. **Monitor Progress**:
+```python
+status = ai_hub.get_development_status(development_result['development_id'])
 ```
 
-### Production Frontend
-
-```bash
-cd ai-hub-dashboard
-pnpm run build
-
-# Serve static files with nginx or similar
+3. **Review and Deploy**:
+```python
+if status['validation_passed']:
+    deployment_result = ai_hub.deploy_improvements(
+        development_result['development_id'],
+        strategy="gradual"
+    )
 ```
 
-## 🔍 Troubleshooting
+## 🤝 **Contributing**
 
-### Common Issues
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
-1. **OpenAI API Key Missing**
-   - Ensure `OPENAI_API_KEY` is set in `.env` file
-   - GPT fallback will be disabled without valid API key
-
-2. **Dependencies Missing**
-   - Run: `pip3 install --break-system-packages -r requirements.txt`
-   - For frontend: `pnpm install` in `ai-hub-dashboard/`
-
-3. **Port Conflicts**
-   - Backend default: 5000
-   - Frontend default: 5173
-   - Change ports in respective configuration files
-
-4. **Circuit Breaker Triggered**
-   - Reset via: `POST /api/system/circuit-breaker/reset`
-   - Check skill logs for underlying issues
-
-### Logs
-
-- Backend logs: Console output when running `python3 src/main.py`
-- Skill execution: Logged with INFO level
-- Errors: Logged with ERROR level
-
-## 🤝 Contributing
-
+### **Development Setup**
 1. Fork the repository
 2. Create a feature branch
-3. Add your skill or enhancement
-4. Run tests: `python3 test_integration.py`
+3. Make your changes
+4. Add tests for new features
 5. Submit a pull request
 
-### Adding Skills
+## 📝 **License**
 
-Follow the skills system documentation above. All skills should:
-- Have proper error handling
-- Return consistent response format
-- Include logging
-- Have corresponding JSON schema
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📄 License
+## 🆘 **Support**
 
-This project is open source. Please refer to the LICENSE file for details.
+- **Documentation**: [Wiki](https://github.com/lucascarvalho12/JARVIS-AI-Hub/wiki)
+- **Issues**: [GitHub Issues](https://github.com/lucascarvalho12/JARVIS-AI-Hub/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/lucascarvalho12/JARVIS-AI-Hub/discussions)
 
-## 🙏 Acknowledgments
+## 🎯 **Roadmap**
 
-- Inspired by Tony Stark's JARVIS from the Marvel Cinematic Universe
-- Built with Flask, React, and modern AI technologies
-- Enhanced with orchestrator pattern for scalability and resilience
+### **Current Version (v2.0)**
+- ✅ Self-development capabilities
+- ✅ Advanced validation framework
+- ✅ Multiple deployment strategies
+- ✅ Comprehensive monitoring
+- ✅ Professional web interface
+
+### **Upcoming Features (v2.1)**
+- 🔄 Enhanced machine learning integration
+- 🔄 Voice command processing
+- 🔄 Mobile application
+- 🔄 Cloud deployment options
+- 🔄 Advanced security features
+
+### **Future Vision (v3.0)**
+- 🔮 Fully autonomous AI companion
+- 🔮 Cross-platform synchronization
+- 🔮 Advanced predictive capabilities
+- 🔮 Enterprise-grade scalability
+- 🔮 AI-to-AI communication protocols
+
+## 🌟 **Acknowledgments**
+
+- OpenAI for GPT integration
+- Flask and React communities
+- Contributors and testers
+- Open source community
 
 ---
 
-**Experience the future of AI assistance with JARVIS!** 🤖✨
+**JARVIS AI Hub** - *Your Intelligent, Self-Developing AI Companion* 🤖✨
 
-For support and questions, please open an issue on GitHub.
-
+*"The future of AI assistance is here - autonomous, intelligent, and constantly improving."*
 

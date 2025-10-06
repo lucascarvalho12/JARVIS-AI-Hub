@@ -11,6 +11,7 @@ from src.routes.user import user_bp
 from src.routes.ai_core import ai_core_bp
 from src.routes.integrations import integrations_bp
 from src.routes.orchestrator import orchestrator_bp
+from src.routes.self_development import self_development_bp
 
 # Load environment variables
 load_dotenv()
@@ -24,9 +25,8 @@ CORS(app)
 app.register_blueprint(user_bp, url_prefix='/api')
 app.register_blueprint(ai_core_bp, url_prefix='/api')
 app.register_blueprint(integrations_bp, url_prefix='/api')
-app.register_blueprint(orchestrator_bp, url_prefix='/api')
-
-# Database configuration
+app.register_blueprint(orchestrator_bp, url_prefix=\"/api\")
+app.register_blueprint(self_development_bp, url_prefix=\"/api\")# Database configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(os.path.dirname(__file__), 'database', 'app.db')}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
