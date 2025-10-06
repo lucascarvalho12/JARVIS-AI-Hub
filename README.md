@@ -61,6 +61,12 @@ JARVIS AI Hub Dashboard
 └── Multi-Theme Support
 ```
 
+## 👶 **New to JARVIS? Start Here!**
+
+If you're just starting out or want a super easy way to get your JARVIS AI Hub running, check out our special **[Simple Setup Guide for Young Builders!](SIMPLE_SETUP_GUIDE.md)**. It's designed to be easy enough for anyone, even a ten-year-old, to follow!
+
+---
+
 ## 🛠️ **Installation & Setup**
 
 ### **Prerequisites**
