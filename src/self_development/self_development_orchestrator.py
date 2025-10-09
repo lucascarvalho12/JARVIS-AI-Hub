@@ -75,7 +75,7 @@ class SelfDevelopmentOrchestrator:
                 development_record["tasks"].append(task_result)
                 if not task_result.get("success", False):
                     development_record["status"] = "failed"
-                    development_record["error"] = f"Task \'{task.get("name", "Unknown")}\' failed."
+                    development_record["error"] = f"Task '{task.get('name', 'Unknown')}' failed."
                     break
             else:
                 development_record["status"] = "completed"
@@ -86,7 +86,7 @@ class SelfDevelopmentOrchestrator:
             development_record["error"] = str(e)
 
         self.knowledge_repository.add_self_development_history(development_record)
-        logger.info(f"Self-development process for goal \'{goal}\' {development_record["status"]}.")
+        logger.info(f"Self-development process for goal '{goal}' {development_record['status']}.")
         return development_record
 
     def _interpret_goal_and_plan_tasks(self, goal: str) -> List[Dict[str, Any]]:

@@ -74,7 +74,7 @@ const api = {
     return res.json();
   },
   async getSystemStatus() {
-    const res = await fetch(`${API_BASE}/api/system/status`);
+    const res = await fetch(`${API_BASE}/api/health`);
     if (!res.ok) throw new Error(`Request failed: ${res.status}`);
     return res.json();
   },
@@ -209,18 +209,27 @@ export default function JarvisAIHub() {
     
     const userMsg = { role: 'user', content: inputMessage, time: Date.now() };
     setMessages(prev => [...prev, userMsg]);
+    const currentMessage = inputMessage;
     setInputMessage('');
     setIsTyping(true);
 
-    // Simulate typing delay
-    setTimeout(() => {
+    try {
+      const response = await api.chat(currentMessage, messages);
       setIsTyping(false);
       setMessages(prev => [...prev, { 
         role: 'assistant', 
-        content: "I've turned on the living room lights for you. Is there anything else you need?",
+        content: response.response || response.message || "I'm here to help! How can I assist you?",
         time: Date.now()
       }]);
-    }, 1500);
+    } catch (error) {
+      setIsTyping(false);
+      logError('Failed to send message', error);
+      setMessages(prev => [...prev, { 
+        role: 'assistant', 
+        content: "I'm sorry, I'm having trouble connecting to my backend. Please check if the backend server is running.",
+        time: Date.now()
+      }]);
+    }
   };
 
   const MetricCard = ({ icon: Icon, label, value, sublabel }) => (
